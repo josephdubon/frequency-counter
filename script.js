@@ -30,7 +30,7 @@
             const words = typedText.split(/\s/)
 
             for (let k = 0; k < typedText.length; k++) {
-                currentWord = typedText[i]
+                currentWord = typedText[k]
                 if (wordCounts[currentWord] === undefined) {
                     wordCounts[currentWord] = 1
                 } else {
