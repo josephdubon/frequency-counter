@@ -21,16 +21,17 @@
 
             for (let letter in letterCounts) {
                 const span = document.createElement("span")
-                const textContent = document.createTextNode('"' + letter + "\": " + letterCounts[letter] + ", ")
-                span.appendChild(textContent)
+                const lettersContent = document.createTextNode('"' + letter + "\": " + letterCounts[letter] + ", ")
+                span.appendChild(lettersContent)
                 document.getElementById("lettersDiv").appendChild(span)
             }
 
             // Words Count
-            const words = typedText.split(/\s/)
+            const words = typedText.split(/\s/);
 
             for (let k = 0; k < typedText.length; k++) {
                 currentWord = typedText[k]
+
                 if (wordCounts[currentWord] === undefined) {
                     wordCounts[currentWord] = 1
                 } else {
@@ -38,10 +39,10 @@
                 }
             }
 
-            for (let word in wordCounts) {
+            for (let words in wordCounts) {
                 const span = document.createElement("span")
-                const textContent = document.createTextNode('"' + word + "\": " + wordCounts[word] + ", ")
-                span.appendChild(textContent)
+                const wordsContent = document.createTextNode('"' + words + "\": " + wordCounts[words] + ", ")
+                span.appendChild(wordsContent)
                 document.getElementById("wordsDiv").appendChild(span)
             }
         }
