@@ -35,7 +35,7 @@
                     wordCounts[currentWord]++
                 }
             }
-            for(let text in wordCounts) {
+            for (let text in wordCounts) {
                 const span = document.createElement("span")
                 const textContent = document.createTextNode('"' + text + "\": " + wordCounts[text] + ",")
                 span.appendChild(textContent)
