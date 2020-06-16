@@ -1,11 +1,13 @@
         let letterCounts = {}
+        let wordCounts = {}
 
         document.getElementById("countButton").onclick = function () {
             let typedText = document.getElementById("textInput").value
-            typedText = typedText.toLowerCase()
             // This changes all the letter to lower case.  
+            typedText = typedText.toLowerCase()
+            // This gets rid of all the characters except letters, spaces, and apostrophes. 
             typedText = typedText.replace(/[^a-z'\s]+/g, "")
-            // This gets rid of all the characters except letters, spaces, and apostrophes.  
+
             for (let i = 0; i < typedText.length; i++) {
                 currentLetter = typedText[i]
 
@@ -15,6 +17,7 @@
                     letterCounts[currentLetter]++
                 }
             }
+
             for (let letter in letterCounts) {
                 const span = document.createElement("span")
                 const textContent = document.createTextNode('"' + letter + "\": " + letterCounts[letter] + ", ")
@@ -22,11 +25,8 @@
                 document.getElementById("lettersDiv").appendChild(span)
             }
 
-            const words = typedText.split(" ")
-            let wordCounts = {}
-
-            for (let k = 0; k < typedText.length; k++) {
-                currentWord = typedText[k]
+            for (let i = 0; i < typedText.length; i++) {
+                currentWord = typedText[i]
                 if (wordCounts[currentWord] === undefined) {
                     wordCounts[currentWord] = 1
                 } else {
@@ -34,6 +34,7 @@
                 }
             }
             for (let word in wordCounts) {
+                const words = typedText.split(/\s/)
                 const span = document.createElement("span")
                 const textContent = document.createTextNode('"' + word + "\": " + wordCounts[word] + ", ")
                 span.appendChild(textContent)
