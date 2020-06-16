@@ -8,6 +8,7 @@
             // This gets rid of all the characters except letters, spaces, and apostrophes. 
             typedText = typedText.replace(/[^a-z'\s]+/g, "")
 
+            // Letter Counts
             for (let i = 0; i < typedText.length; i++) {
                 currentLetter = typedText[i]
 
@@ -25,7 +26,10 @@
                 document.getElementById("lettersDiv").appendChild(span)
             }
 
-            for (let i = 0; i < typedText.length; i++) {
+            // Words Count
+            const words = typedText.split(/\s/)
+
+            for (let k = 0; k < typedText.length; k++) {
                 currentWord = typedText[i]
                 if (wordCounts[currentWord] === undefined) {
                     wordCounts[currentWord] = 1
@@ -33,8 +37,8 @@
                     wordCounts[currentWord]++
                 }
             }
+
             for (let word in wordCounts) {
-                const words = typedText.split(/\s/)
                 const span = document.createElement("span")
                 const textContent = document.createTextNode('"' + word + "\": " + wordCounts[word] + ", ")
                 span.appendChild(textContent)
